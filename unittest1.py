@@ -1,7 +1,9 @@
 import unittest
-from main import fetchcourses
+'''from main import fetchcourses'''
 
 class TestCourses(unittest.TestCase):
+    def seUp(self):
+        self.scheduler = Courses()
     
     def test_search_course(self):
         courses = [
@@ -54,6 +56,16 @@ class TestCourses(unittest.TestCase):
     ['CS416', '001', 'TR', '0900', '1015']
 ]
         self.assertEqual(expected, fetchcourses())
+
+    def test_add_course_sucess(self):
+        result = self.scheduler.add_course("CS120", "002", "MWF", 1300, 1350, 3)
+        self.assertEqual(result, "Sucessfuly added.")
+
+    def test_conflict_adding_course(self):
+        self.scheduler.adding_course("CSS222", "005", "TR", 1100, 1215, 3)
+        result = self.scheduler.adding_course("CSS222", "005", "TR", 1100, 1215, 3)
+        self.assertEqual(result, "Oh there is schedule conflict. You will need to add different course.")
+        
 
 
 if __name__ == "__main__":
