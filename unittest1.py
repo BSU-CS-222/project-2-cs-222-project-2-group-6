@@ -19,14 +19,12 @@ class TestCourses(unittest.TestCase):
     
     def test_course_not_exist(self):
         courses = [
-            ['CS416', '001', 'TR', '0900', '1015'],
+            ['CS4534', '001', 'TR', '0900', '1015'],
             
         ]
 
         result = search_courses(courses)
-        expected = [
-            {'Course': 'CS416', 'Section': '001', 'Days': 'TR', 'Start Time': '0900', 'End Time': '1030'}
-        ]
+        
         expected = "Invalid course, try again"
         self.assertEqual(result, expected)
     
