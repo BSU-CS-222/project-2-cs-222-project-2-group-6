@@ -25,7 +25,6 @@ class PartTimeCourseScheduler:
         return self.availability
 
     def display_available_courses(self):
-        # Mock implementation - replace with actual availability check
         return self.courses
 
     def select_course(self, course_id):
@@ -46,7 +45,6 @@ class PartTimeCourseScheduler:
         return self.selected_courses
 
     def get_schedule(self):
-        # Mock implementation - replace with actual scheduling logic
         return {course_id: self.courses[course_id] for course_id in self.selected_courses}
 
     def adjust_courses(self, new_courses):
