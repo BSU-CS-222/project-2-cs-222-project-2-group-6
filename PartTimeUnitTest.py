@@ -11,7 +11,7 @@ class TestPartTimeCourseScheduler(unittest.TestCase):
     def test_display_classes_within_availability(self):
         self.scheduler.set_availability(['MWF', '0900', '1200'])
         available_courses = self.scheduler.display_available_courses()
-        
+    
 
     def test_register_reduced_course_load(self):
         self.scheduler.set_availability(['MWF', '0900', '1200'])

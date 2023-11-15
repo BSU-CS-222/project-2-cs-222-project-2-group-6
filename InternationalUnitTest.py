@@ -10,8 +10,8 @@ class TestInternationalStudentScheduler(unittest.TestCase):
             self.assertIn('type', course_info)  
 
     def test_limit_one_online_class(self):
-        self.scheduler.select_course('OnlineCourse1')  # Assuming 'OnlineCourse1' is an online course
-        self.scheduler.select_course('OnlineCourse2')  # Attempt to select another online course
+        self.scheduler.select_course('OnlineCourse1')  
+        self.scheduler.select_course('OnlineCourse2')  
         online_courses = self.scheduler.get_selected_online_courses()
         self.assertEqual(len(online_courses), 1)  # Should only have 1 online course
 
@@ -21,8 +21,8 @@ class TestInternationalStudentScheduler(unittest.TestCase):
         self.assertFalse(selection_result)  # The second online course selection should fail
 
     def test_confirm_final_schedule(self):
-        self.scheduler.select_course('OnlineCourse1')  # Correct online course ID
-        self.scheduler.select_course('InPersonCourse1')  # Correct in-person course ID
+        self.scheduler.select_course('OnlineCourse1')  
+        self.scheduler.select_course('InPersonCourse1') 
         final_schedule = self.scheduler.get_final_schedule()
 
         online_courses = [course_id for course_id in final_schedule if final_schedule[course_id]['type'] == 'online']
