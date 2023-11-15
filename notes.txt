@@ -1,0 +1,31 @@
+#use dictionary list for this program, store info from txt file to dict list
+#c = 0 while (c<n) 
+#Entercourse = input("  ")
+#if Entercourse in 'sometype of list'
+    #print "Course already on your schedule"
+#Else add to list c++
+
+studentList = [.......]
+for c in range len(studentList) //this could be my master loop for schedulig
+courses[studentList [c]] - get the first course from 'studentList'
+^^^ refer to picture in my photos for a function like this,
+*** this function will use recursive.
+
+
+
+
+
+unittests
+--------------
+#create new section object for each line. 
+#if key exists add to new list, if not then create new. 
+#unit test so user doesnt ask for more courses than offered
+#unit test that returns all the unique course numbers as a list
+#unit test that compares if two sections overlap, compare (section0 and section1) 
+#if days are different then yes let it schedule, if the days are different
+the function has to make sure the times arent overlapping with if else 
+statements.
+if days same look at start and end times see if the end time is before the start
+time of next class  ** refer to picture of n queens problem on my photos.
+parameters we care about for this overlapping function is the day, starttime, endtime.
+
