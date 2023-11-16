@@ -2,12 +2,12 @@ import unittest
 '''from main import fetchcourses'''
 
 class TestCourses(unittest.TestCase):
-    def seUp(self):
+    def setUp(self):
         self.scheduler = Courses()
     
     def test_search_course(self):
-       
-        result = search_courses(courses)
+        courseNumber = "CS416"
+        result = search_courses(courseNumber)
         expected = [
             {'Course': 'CS416', 'Section': '001', 'Days': 'TR', 'Start Time': '0900', 'End Time': '1030'}
         ]
@@ -15,8 +15,8 @@ class TestCourses(unittest.TestCase):
     
     
     def test_course_not_exist(self):
-    
-        result = search_courses(courses)
+        courseNumber = "CS400"
+        result = search_courses(courseNumber)
         
         expected = "Invalid course, try again"
         self.assertEqual(result, expected)
@@ -34,8 +34,16 @@ class TestCourses(unittest.TestCase):
         creditlimit = 22
         
         self.assertLess(studenthours, creditlimit)
-            
+        
     
+    def test_over_wanted_classes(self):
+        nCourses = "4"
+        result = add_classes( nCourses, ["CS120", "CS121", "CS222", "CS416", "CS239"])
+        
+        expected = ("Can't register for classes over your limit.")
+        self.assertEqual(result, expected)
+        
+            
     #Student who need special assistance
     #The student need a gap time between each of the class
     #This is testing about student can view clearly the detail of the course times
