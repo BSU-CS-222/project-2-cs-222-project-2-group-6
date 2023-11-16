@@ -17,6 +17,7 @@ class TestCourses(unittest.TestCase):
         ]
         self.assertEqual(result, expected)
     
+    
     def test_course_not_exist(self):
         courses = [
             ['CS4534', '001', 'TR', '0900', '1015'],
@@ -38,9 +39,9 @@ class TestCourses(unittest.TestCase):
         self.assertFalse(result)
     
     def test_class_limit(self):
-        creditlimit = 21
+        creditlimit = 22
         
-        self.assertNotEqual(creditlimit, studenthours)
+        self.assertLess(creditlimit, studenthours)
             
     
     #Student who need special assistance
@@ -60,7 +61,7 @@ class TestCourses(unittest.TestCase):
 ]
         self.assertEqual(expected, fetchcourses())
 
-    def test_add_course_sucess(self):
+    def test_add_course_success(self):
         result = self.scheduler.add_course("CS120", "002", "MWF", 1300, 1350, 3)
         self.assertEqual(result, "Sucessfuly added.")
 
@@ -113,6 +114,15 @@ class TestCourses(unittest.TestCase):
         has_overlap = self.scheduler.has_time_overlap()
 
         self.assertTrue(has_overlap, "Scheduler did not detect time overlap")
+        
+    def test_register_reduced_course_load():
+        scheduler = Courses()
+        scheduler.set_availability(['MWF', '0900', '1200'])
+        scheduler.set_max_courses(2)
+        scheduler.select_course('CS120 001')
+        scheduler.select_course('CS121 001')
+        self.assertEqual(scheduler.get_selected_courses(), ['CS120 001', 'CS121 001'])
+
 
 if __name__ == "__main__":
     unittest.main()
