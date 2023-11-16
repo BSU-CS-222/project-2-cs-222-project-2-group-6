@@ -33,7 +33,7 @@ class TestCourses(unittest.TestCase):
     def test_class_limit(self):
         creditlimit = 22
         
-        self.assertLess(studenthours)
+        self.assertLess(studenthours, creditlimit)
             
     
     #Student who need special assistance
