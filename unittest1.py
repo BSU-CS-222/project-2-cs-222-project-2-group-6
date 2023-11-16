@@ -31,14 +31,18 @@ class TestCourses(unittest.TestCase):
         self.assertFalse(result)
     
     def test_class_limit(self):
-        creditlimit = 22
+        creditlimit = 21
+        studenthours = 24
         
-        self.assertLess(studenthours, creditlimit)
+        result = add_course(creditlimit, studenthours)
+        expected = "You're over max credit hours (21), remove courses."
+        
+        self.assertEqual(result, expected)
         
     
     def test_over_wanted_classes(self):
         nCourses = "4"
-        result = add_classes( nCourses, ["CS120", "CS121", "CS222", "CS416", "CS239"])
+        result = add_course( nCourses, ["CS120", "CS121", "CS222", "CS416", "CS239"])
         
         expected = ("Can't register for classes over your limit.")
         self.assertEqual(result, expected)
