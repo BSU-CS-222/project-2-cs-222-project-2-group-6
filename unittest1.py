@@ -6,11 +6,7 @@ class TestCourses(unittest.TestCase):
         self.scheduler = Courses()
     
     def test_search_course(self):
-        courses = [
-            ['CS416', '001', 'TR', '0900', '1015'],
-            
-        ]
-
+       
         result = search_courses(courses)
         expected = [
             {'Course': 'CS416', 'Section': '001', 'Days': 'TR', 'Start Time': '0900', 'End Time': '1030'}
@@ -19,11 +15,7 @@ class TestCourses(unittest.TestCase):
     
     
     def test_course_not_exist(self):
-        courses = [
-            ['CS4534', '001', 'TR', '0900', '1015'],
-            
-        ]
-
+    
         result = search_courses(courses)
         
         expected = "Invalid course, try again"
@@ -41,7 +33,7 @@ class TestCourses(unittest.TestCase):
     def test_class_limit(self):
         creditlimit = 22
         
-        self.assertLess(creditlimit, studenthours)
+        self.assertLess(studenthours)
             
     
     #Student who need special assistance
