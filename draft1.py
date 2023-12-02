@@ -2,7 +2,7 @@ class Student:
     def __init__(self, student_id, max_credit_hours):
         self.student_id = student_id
         self.max_credit_hours = max_credit_hours
-        self.schedule = []
+        self.schedule = [] 
 
     def add_course(self, course_info):
         try:
