@@ -7,37 +7,29 @@ class Student:
         self.schedule = []
 
     def add_course(self, course_code):
-      try:
-        if course_code in self.courses_dict:
-            available_classes = self.courses_dict[course_code]
+        try:
+            if course_code in self.courses_dict:
+                available_classes = self.courses_dict[course_code]
 
-            available_classes_table = PrettyTable(["Section", "Days", "Start-Time", "End-Time", "Credits"])
-            for i, class_info in enumerate(available_classes):
-                available_classes_table.add_row([f"{i}. {class_info[0]}", class_info[1], class_info[2], class_info[3], class_info[4]])
+                # Choose the first available section automatically
+                selected_section = available_classes[0]
 
-                print(available_classes_table)  # Display available classes table
+                # Extract relevant information from the selected section
+                section, days, start_time, end_time, credits = map(str.strip, selected_section)
+                formatted_course_info = f"{course_code},{section},{days},{start_time},{end_time},{credits}"
 
-                print("Choose by inputting number, where '0' is the course at the top of the list.")
+                if not self.has_time_conflict(formatted_course_info):
+                    self.schedule.append(formatted_course_info)  # adds courses to your schedule
+                    return "Successfully added."
+                else:
+                    print("Time conflict with an existing course. You have been added this course.")
+                    return "Please try to add a different course, no conflict time with your existing courses."
 
-            class_choice = int(input("Enter the number of the section you want to register for: "))
-            selected_section = available_classes[class_choice]
-
-            # Extract relevant information from the selected section
-            section, days, start_time, end_time, credits = map(str.strip, selected_section)
-            formatted_course_info = f"{course_code},{section},{days},{start_time},{end_time},{credits}"
-
-            if not self.has_time_conflict(formatted_course_info):
-                self.schedule.append(formatted_course_info)  # adds courses to your schedule
-                return "Successfully added."  
             else:
-                print("Time conflict with an existing course. You have been added this course.")
-                return "Please try to add different course, no conflict time with your existing courses."
+                return f"Course code {course_code} not found in available courses."
 
-        else:
-            return f"Course code {course_code} not found in available courses."
-
-      except ValueError:
-        return "Invalid input. Please try again."
+        except ValueError:
+            return "Invalid input. Please try again."
 
     def resolve_time_conflict(self, new_course_details):
         for existing_course_index, existing_course in enumerate(self.schedule):
