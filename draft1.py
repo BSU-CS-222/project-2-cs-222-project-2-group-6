@@ -108,7 +108,7 @@ class Student:
         with open(file_path, 'r') as file:  # stores info from txt file to dict.
             self.courses_dict = {}
             for line in file:
-                course_data = line.strip().split(',')
+                course_data = line.strip().split()
 
                 course_code = course_data[0]
 
