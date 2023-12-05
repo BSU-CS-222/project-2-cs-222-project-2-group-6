@@ -20,10 +20,12 @@ class Student:
 
                 if not self.has_time_conflict(formatted_course_info):
                     self.schedule.append(formatted_course_info)  # adds courses to your schedule
-                    return "Successfully added."
+                    pass
+                    
                 else:
+                
                     print("Time conflict with an existing course. You have been added this course.")
-                    return "Please try to add a different course, no conflict time with your existing courses."
+                    print("Please try to add a different course, no conflict time with your existing courses.")
 
             else:
                 return f"Course code {course_code} not found in available courses."
@@ -151,7 +153,7 @@ x------------------------------------------x''')
                 for i in range(num_courses):
                     course_code = input("Enter the course code (e.g., MATH166, CS222, CS120, CS124, CS121, CS230, MATH165): ")
                     result = self.add_course(course_code)
-                    print(result)
+                    #print(result)
             elif choice == '2':
                 print(self.view_schedule())
             elif choice == '3':
