@@ -1,5 +1,5 @@
 import unittest
-'''from main import fetchcourses'''
+from draft1 import Student
 
 class TestCourses(unittest.TestCase):
     def setUp(self):
@@ -52,18 +52,8 @@ class TestCourses(unittest.TestCase):
     #The student need a gap time between each of the class
     #This is testing about student can view clearly the detail of the course times
     def test_show_courses(self):
-        expected = [
-    ['CS120', '001', 'MWF', '0900', '0950'],
-    ['CS120', '003', 'TR', '0930', '1045'],
-    ['CS121', '001', 'TR', '1230', '1345'],
-    ['CS120', '002', 'MWF', '1300', '1350'],
-    ['CS222', '005', 'TR', '1100', '1215'],
-    ['CS416', '001', 'TR', '0900', '1015'],
-    ['MATH181','001','TR','1400','1459'],
-    ['CS418','001','MWF','1200','1250'],
-    ['CS239','001','TR','0900','0950']
-]
-        self.assertEqual(expected, fetchcourses())
+        expected = ['001', 'TR', '0900', '0950', ' 3']
+        self.assertEqual(expected, Student.read_courses_from_file)
 
     def test_add_course_success(self):
         result = self.scheduler.add_course("CS120", "002", "MWF", 1300, 1350, 3)

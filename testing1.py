@@ -15,8 +15,8 @@ class Student:
                 for class_info in available_classes:
                     print(class_info)
 
-                #class_choice = int(input("Enter the number of the section you want to register for: "))
-                selected_section = available_classes[0]
+                class_choice = int(input("Enter the number of the section you want to register for: "))
+                selected_section = available_classes[class_choice]
 
                 section, days, start_time, end_time, credits = selected_section
                 formatted_course_info = f"{course_code},{section},{days},{start_time},{end_time},{credits}"
