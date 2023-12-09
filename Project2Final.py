@@ -61,7 +61,7 @@ class Student:
                 if course_code not in available_courses_str:
                     available_courses_str += f"{course_code} \n"
         return available_courses_str
-
+#
     def main(self):
         coursesfile = self.read_courses_from_file("classes.txt")
         print(self.view_available_courses())  
