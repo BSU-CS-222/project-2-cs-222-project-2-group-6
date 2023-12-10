@@ -8,8 +8,7 @@ class TestStudent(unittest.TestCase):
     def test_read_courses_from_file(self):
         # Test if read_courses_from_file method properly reads the file and populates the courses_dict
         self.student.read_courses_from_file("classes.txt")
-        self.assertEqual(len(self.student.courses_dict), 5)  # Adjust the expected count as per the test file
-
+        self.assertEqual(len(self.student.courses_dict), 5)  
     def test_time_conflict(self):
         # Test for time conflict when there's no conflict
         self.student.schedule = [("Section1", "Mon", "10-12")]
@@ -31,10 +30,9 @@ class TestStudent(unittest.TestCase):
         courses_to_add = ["CS101", "CS102", "CS103"]
         result = self.student.add_courses(courses_to_add)
         self.assertIsNone(result)
-        self.assertEqual(len(self.student.schedule), 3)  # Assuming three courses were added
+        self.assertEqual(len(self.student.schedule), 3)
 
-    # Other test cases remain unchanged
-    # ...
+   
 
 if __name__ == '__main__':
     unittest.main()
