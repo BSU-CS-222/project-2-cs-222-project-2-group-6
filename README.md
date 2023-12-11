@@ -6,7 +6,7 @@
   <img src="https://media.giphy.com/media/syBlSgDbjsMHC/giphy.gif" width="350"/>
 
 <h1>&#x1F4D9;Summary of student schedule program</h1>
-<p>This program can help the student to register for the classes that they need in the next semester.<strong>✔️"Project_2.py"✔️</strong></p>
+<p>This program can help the student to register for the classes that they need in the next semester.<strong>✔️"Project2Recursion.py"✔️</strong></p>
 <p>We used test driven devleopement strategies by creating user stories and then, implemented the program.</p>
 
 
